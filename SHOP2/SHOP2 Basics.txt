@@ -1,0 +1,61 @@
+SHOP2 Formalism -
+
+1. Variables or variable symbols ( starting with ?, e.g: ?x or ?y) - These comprise all the variables, which take different types of values in different runs
+2. Primitive task symbols (starting with !, e.g: !drive-by-car ?x ?y) - The tasks or operators, which cannot be further decomposed into simpler tasks, and which need to be executed directly by the planner
+3. constant symbols (not starting with any special character) - Comprises all the constants, which does not change their values during repeated runs of the actions/methods
+4. compound task symbols (not starting with any special character) - The tasks which can be further decomposed into simpler tasks, which can be primitive or compound again. These tasks need to be decomposed using methods to be able to be executed by the planners.
+5. predicate symbols (not starting with any special character) - The predicates explain the existing states of the domain, which encompasses the planning model.
+6.
+
+
+
+Axioms - Consist of 3 parts (:- h [n] E)
+h - The axiom's head
+n - optional name of each logical expression E
+E - The axiom's logical expression(s)
+
+
+Operators - Consist of 5 parts : (:operator h P D A [c])
+h - The operator's head
+P - The operator's precondition
+D - The operator's delete list
+A - The operator's add list
+c - The operator's cost, not necessary to provide explicitly
+
+Both D and A begins and ends with an extra pair of first brackets.
+
+Methods - Consist of 4 parts : (:method h [n] P T)
+h - The method's head
+n - optional name of each precondition-tail pair, not necessary to provide explicitly
+P - The method's precondition
+T - The method's tail
+
+
+
+VERY IMPORTANT LISP COMMANDS TO RUN SHOP2 -
+
+1. Install Common Lisp Allegro 10.1 in the Linux system (Ubuntu)
+2. Already GnuPG (1.4.20) is installed
+3. Navigate to the directory where Allegro CL is installed and run "alisp" file using the following command:
+	/home/soumyac/Downloads/acl10.1express/alisp
+4. Load ASDF basic by using the command:
+	(require "asdf")
+5. The ASDF version can be verified using the command:
+	(asdf:asdf-version)
+6. Check whether ASDF3 is accessible or not by using the command:
+	(member :asdf3 *features*)
+7. Navigate to the Allegro Lisp installation folder and load the "asdf.lisp" file using the command:
+	(load #p"/home/soumyac/Downloads/acl10.1express/src/asdf.lisp")
+8. Push the directory where "shop2.asd" is located inside the ASDF central registry by using the command:
+	(push "/home/soumyac/Downloads/acl10.1express/SHOP2/shop2-2.9.0/" asdf:*central-registry*)
+9. Finally load the shop2 system inside ASDF using the command:
+	(asdf:load-system :shop2)
+10. Navigate to the in-built shop2 user package using the command:
+	(in-package :shop2-user)
+11. Save the SHOP2 domain and problem files inside one file with extension ".lisp" and run it using the command:
+	(load "/home/soumyac/Downloads/acl10.1express/SHOP2/shop2-2.9.0/Shop2-wall.lisp")
+12. Edit the file in Emacs using the following command:
+	emacs Shop2-wall.lisps
+13.
+
+
