@@ -430,5 +430,5 @@
  	(block-at wooden-pressure-plate c4 c2 c3)
 	)
 	)
-	(:metric minimice (total-cost))
+	(:metric minimize (total-cost))
 )
